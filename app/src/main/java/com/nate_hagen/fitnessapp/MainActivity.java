@@ -8,8 +8,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+
+    private TextView nGreeting;
+    private Button nGoodbyeButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +31,16 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        nGoodbyeButton = (Button) findViewById(R.id.goodbye_button);
+        nGreeting = (TextView) findViewById(R.id.greeting);
+        nGoodbyeButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                nGoodbyeButton.setVisibility(View.INVISIBLE);
+                nGreeting.setVisibility(View.INVISIBLE);
+            }
+        });
+
     }
 
     @Override

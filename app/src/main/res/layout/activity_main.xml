@@ -6,28 +6,36 @@
     android:layout_height="match_parent"
     tools:context="com.nate_hagen.fitnessapp.MainActivity">
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+    <Button
+        android:id="@+id/button"
+        android:layout_width="130dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center_vertical|left"
+        android:text="Previous Workout"
+        app:layout_anchor="@+id/include"
+        app:layout_anchorGravity="center_vertical|right" />
 
-    </android.support.design.widget.AppBarLayout>
+    <include
+        android:id="@+id/include"
+        layout="@layout/content_main" />
 
-    <include layout="@layout/content_main" />
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="130dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center_vertical|right"
+        android:text="New   Workout"
+        app:layout_anchor="@+id/include"
+        app:layout_anchorGravity="center_vertical|left" />
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="130dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:text="Start Workout"
+        app:layout_anchor="@+id/include"
+        app:layout_anchorGravity="center_vertical|center_horizontal" />
 
 </android.support.design.widget.CoordinatorLayout>

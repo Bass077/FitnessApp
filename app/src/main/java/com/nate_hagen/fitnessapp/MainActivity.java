@@ -1,5 +1,6 @@
 package com.nate_hagen.fitnessapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,34 +14,50 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView nGreeting;
-    private Button nGoodbyeButton;
+    public Button b1;
+    public Button b2;
+    public Button b3;
+
+    public void goToNewWorkout(){
+        b1 = (Button)findViewById(R.id.button3);
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent toy = new Intent(MainActivity.this, NewWorkout.class);
+                startActivity(toy);
+            }
+        });
+    }
+
+    public void goToStartWorkout(){
+        b2 = (Button)findViewById(R.id.button4);
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent toy = new Intent(MainActivity.this, StartWorkout.class);
+                startActivity(toy);
+            }
+        });
+    }
+
+    public void goToPreviousWorkout(){
+        b3 = (Button)findViewById(R.id.button);
+        b3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent toy = new Intent(MainActivity.this, PreviousWorkout.class);
+                startActivity(toy);
+            }
+        });
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-        nGoodbyeButton = (Button) findViewById(R.id.goodbye_button);
-        nGreeting = (TextView) findViewById(R.id.greeting);
-        nGoodbyeButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                nGoodbyeButton.setVisibility(View.INVISIBLE);
-                nGreeting.setVisibility(View.INVISIBLE);
-            }
-        });
-
+        goToNewWorkout();
+        goToStartWorkout();
+        goToPreviousWorkout();
     }
 
     @Override
